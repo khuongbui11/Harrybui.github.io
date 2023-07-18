@@ -12157,8 +12157,7 @@ body[dir='rtl'] #USE_CHAT_GPT_AI_ROOT {
   df['acq_date'] = pd.to_datetime(df['acq_date'])
      
   # Convert the 'acq_time' column to a time data
-  df['acq_time'] = df['acq_time'].astype(str).str.zfill(4)
-  df['acq_time'] = df['acq_time'].str.slice(0, 2) + ':' + df['acq_time'].str.slice(2, 4)
+  df['acq_time'] = df['acq_time'].apply(lambda x: pd.to_datetime(str(x).zfill(4), format='%H%M').time())
   df.head()                   
   </pre>
   </div> 
@@ -12194,12 +12193,12 @@ body[dir='rtl'] #USE_CHAT_GPT_AI_ROOT {
     </div> 
     </div>
     </div>
-    </div><img src="images/case5_3.png" alt="A description of the photo">
-    <img src="images/case5_4.png" alt="A description of the photo">
+    </div>
 
   
   <div class="cell border-box-sizing text_cell rendered">
-  <div class="text_cell_render border-box-sizing rendered_html">
+  <div class="text_cell_render border-box-sizing rendered_html"> <img src="images/case5_3.png" alt="A description of the photo">
+    <img src="images/case5_4.png" alt="A description of the photo">
     <p>The boxplots provide a visual representation of the minimum, first quartile (25%), median (50%), third quartile (75%), and maximum values of each column. The dots represent potential outliers, which are values that are significantly higher or lower than the rest.
     <p>From the boxplots, it appears that the 'brightness’, ‘bright_t31’, and ‘frp’ column may have some outliers. These outliers should be handled based on the business context and the statistical distribution. I will visualise the data distribution of these columns to get more information.</p>      
   </div>
@@ -12226,12 +12225,12 @@ body[dir='rtl'] #USE_CHAT_GPT_AI_ROOT {
     </div> 
     </div>
     </div>
-    </div><img src="images/case5_5.png" alt="A description of the photo">
-    <img src="images/case5_6.png" alt="A description of the photo">
-    <img src="images/case5_7.png" alt="A description of the photo">
+    </div>
 
   <div class="cell border-box-sizing text_cell rendered">
-  <div class="text_cell_render border-box-sizing rendered_html">
+  <div class="text_cell_render border-box-sizing rendered_html"><img src="images/case5_5.png" alt="A description of the photo">
+    <img src="images/case5_6.png" alt="A description of the photo">
+    <img src="images/case5_7.png" alt="A description of the photo">
     <p>The visualisations indicate that outliers constitute a minor portion of the dataset. Given their limited presence, these outliers are unlikely to significantly impact the overall analysis. Consequently, I have decided to retain these data points for the subsequent stages of exploration.        
   </div>
   </div> 
@@ -12274,11 +12273,12 @@ body[dir='rtl'] #USE_CHAT_GPT_AI_ROOT {
   </div> 
   </div>
   </div>
-  </div><img src="images/case5_8.png" alt="A description of the photo">
+  </div>
 
   <div class="cell border-box-sizing text_cell rendered">
   <div class="text_cell_render border-box-sizing rendered_html">
-    <p style="line-height: 1.5; margin-bottom: 10px; text-align: justify;"> Based on the bushfire locations I have some observations as below:
+    <p style="line-height: 1.5; margin-bottom: 10px; text-align: justify;"> <img src="images/case5_8.png" alt="A description of the photo">
+    Based on the bushfire locations I have some observations as below:
     <li><strong>Concentration of Bushfires:</strong> The bushfires appear to be concentrated in certain regions, particularly in the northern and eastern parts of Australia. This could be due to various factors, such as climate, vegetation, and human activity. These regions might be more prone to bushfires and could be the focus of prevention and mitigation efforts.</li> 
     <li><strong>Sparse Areas:</strong> There are also areas with relatively few bushfires, such as the central and western parts of Australia. These areas might have different climate conditions or less vegetation that can fuel fires. Understanding why these areas have fewer fires could provide insights for preventing fires in other regions.</li>
     <p>Based on these observations, here are some recommendations:</p>
@@ -12333,14 +12333,15 @@ body[dir='rtl'] #USE_CHAT_GPT_AI_ROOT {
   </div> 
   </div>
   </div>
-  </div><img src="images/case5_9.png" alt="A description of the photo">
-  <img src="images/case5_10.png" alt="A description of the photo">
-  <img src="images/case5_11.png" alt="A description of the photo">
-  <img src="images/case5_12.png" alt="A description of the photo">
+  </div>
 
   <div class="cell border-box-sizing text_cell rendered">
   <div class="text_cell_render border-box-sizing rendered_html">
-    <p style="line-height: 1.5; margin-bottom: 10px; text-align: justify;"> Each heatmap shows the correlation coefficients between the numerical variables. The correlation coefficient ranges from -1 to 1. If the value is close to 1, it means that there is a strong positive correlation between the two variables. When it is close to -1, the variables have a strong negative correlation. Let's discuss the results:
+    <p style="line-height: 1.5; margin-bottom: 10px; text-align: justify;"> <img src="images/case5_9.png" alt="A description of the photo">
+      <img src="images/case5_10.png" alt="A description of the photo">
+      <img src="images/case5_11.png" alt="A description of the photo">
+      <img src="images/case5_12.png" alt="A description of the photo">
+      Each heatmap shows the correlation coefficients between the numerical variables. The correlation coefficient ranges from -1 to 1. If the value is close to 1, it means that there is a strong positive correlation between the two variables. When it is close to -1, the variables have a strong negative correlation. Let's discuss the results:
       <ol>
         <li><strong>Day vs Night:</strong> The correlation patterns between the variables are quite similar for day and night. However, the correlation between brightness and bright_t31 is slightly stronger during the day than at night. This could be due to the effect of sunlight on the brightness measurement.</li>
         <li><strong>Terra vs Aqua:</strong> The correlation patterns are also similar for the Terra and Aqua satellites. However, the correlation between brightness and bright_t31 is slightly stronger for the Aqua satellite. This could be due to differences in the sensors or calibration of the two satellites.</li>
@@ -12374,11 +12375,12 @@ body[dir='rtl'] #USE_CHAT_GPT_AI_ROOT {
   </div> 
   </div>
   </div>
-  </div><img src="images/case5_13.png" alt="A description of the photo">
+  </div>
 
   <div class="cell border-box-sizing text_cell rendered">
   <div class="text_cell_render border-box-sizing rendered_html">
-    <p style="line-height: 1.5; margin-bottom: 10px; text-align: justify;"> The resulting visualization reveals a significant insight: the majority of bushfires are detected from midnight to 5 AM. This finding aligns with our understanding of human behavior and activity patterns. During these late-night to early-morning hours, most people are asleep, and consequently, any fires that ignite may go unnoticed for some time. This delay in detection could potentially allow the fires to grow in size and intensity, making them more challenging to control and extinguish.
+    <p style="line-height: 1.5; margin-bottom: 10px; text-align: justify;"> <img src="images/case5_13.png" alt="A description of the photo">
+    The resulting visualization reveals a significant insight: the majority of bushfires are detected from midnight to 5 AM. This finding aligns with our understanding of human behavior and activity patterns. During these late-night to early-morning hours, most people are asleep, and consequently, any fires that ignite may go unnoticed for some time. This delay in detection could potentially allow the fires to grow in size and intensity, making them more challenging to control and extinguish.
     <br>
     <br>Therefore, we should consider implementing more robust monitoring and early detection systems during these hours. Automated surveillance technologies, such as satellite imagery or ground-based sensors, could play a crucial role in this regard. By ensuring continuous and vigilant monitoring, we can improve our chances of detecting and responding to bushfires promptly, thereby mitigating their impact and safeguarding our communities.</p>
  </div>
